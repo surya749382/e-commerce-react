@@ -13,6 +13,7 @@ export const mens_kurta=[
               "quantity": 20
             },
             {
+              
               "name": "M",
               "quantity": 30
             },
