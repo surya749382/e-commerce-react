@@ -64,41 +64,45 @@ const product = {
 };
 // const reviews = { href: "#", average: 4, totalCount: 117 };
 const reviews = [
-    { id: 1, user: "John", rating: 5, comment: "Great product!" },
-    { id: 2, user: "Jane", rating: 4, comment: "Very good." },
-    { id: 3, user: "Alex", rating: 3, comment: "It's okay." },
-    // Add more reviews here
-  ];
+  { id: 1, user: "John", rating: 5, comment: "Great product!" },
+  { id: 2, user: "Jane", rating: 4, comment: "Very good." },
+  { id: 3, user: "Alex", rating: 3, comment: "It's okay." },
+  // Add more reviews here
+];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function ProductDetails() {
-//   const [selectedSize, setSelectedSize] = useState();
-//   const [activeImage, setActiveImage] = useState(null);
-//   const navigate = useNavigate();
-//   const dispatch = useDispatch();
-//   const { customersProduct } = useSelector((store) => store);
-//   const { productId } = useParams();
-//   const jwt = localStorage.getItem("jwt");
+  //   const [selectedSize, setSelectedSize] = useState();
+  //   const [activeImage, setActiveImage] = useState(null);
+  const navigate = useNavigate();
+  //   const dispatch = useDispatch();
+  //   const { customersProduct } = useSelector((store) => store);
+  //   const { productId } = useParams();
+  //   const jwt = localStorage.getItem("jwt");
   // console.log("param",productId,customersProduct.product)
 
-//   const handleSetActiveImage = (image) => {
-//     setActiveImage(image);
-//   };
+  //   const handleSetActiveImage = (image) => {
+  //     setActiveImage(image);
+  //   };
 
-//   const handleSubmit = () => {
-//     const data = { productId, size: selectedSize.name };
-//     dispatch(addItemToCart({ data, jwt }));
-//     navigate("/cart");
-//   };
+  //   const handleSubmit = () => {
+  //     const data = { productId, size: selectedSize.name };
+  //     dispatch(addItemToCart({ data, jwt }));
+  // navigate("/cart");
+  //   };
 
-//   useEffect(() => {
-//     const data = { productId: Number(productId), jwt };
-//     dispatch(findProductById(data));
-//     dispatch(getAllReviews(productId));
-//   }, [productId]);
+  const handleAddToCard = () => {
+    navigate("/cart");
+  };
+
+  //   useEffect(() => {
+  //     const data = { productId: Number(productId), jwt };
+  //     dispatch(findProductById(data));
+  //     dispatch(getAllReviews(productId));
+  //   }, [productId]);
 
   return (
     <div className="bg-white lg:px-20">
@@ -109,6 +113,7 @@ export default function ProductDetails() {
             className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
           >
             {product.breadcrumbs.map((breadcrumb) => (
+              // <li key={breadcrumb.id}>
               <li key={breadcrumb.id}>
                 <div className="flex items-center">
                   <a
@@ -157,7 +162,7 @@ export default function ProductDetails() {
             <div className="flex flex-wrap space-x-5 justify-center">
               {product.images.map((image) => (
                 <div
-                //   onClick={() => handleSetActiveImage(image)}
+                  //   onClick={() => handleSetActiveImage(image)}
                   className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg max-w-[5rem] max-h-[5rem] mt-4"
                 >
                   <img
@@ -191,9 +196,7 @@ export default function ProductDetails() {
                   {/* ₹{customersProduct.product?.discountedPrice} */}
                   {product?.price}
                 </p>
-                <p className="opacity-50 line-through">
-                  ₹{product?.price}
-                </p>
+                <p className="opacity-50 line-through">₹{product?.price}</p>
                 <p className="text-green-600 font-semibold">
                   {/* {customersProduct.product?.discountPersent}% Off */}
                 </p>
@@ -218,8 +221,9 @@ export default function ProductDetails() {
                 </div>
               </div>
 
-              <form className="mt-10" 
-            //   onSubmit={handleSubmit}
+              <form
+                className="mt-10"
+                //   onSubmit={handleSubmit}
               >
                 {/* Sizes */}
                 <div className="mt-10">
@@ -297,6 +301,7 @@ export default function ProductDetails() {
                 </div>
 
                 <Button
+                  onClick={handleAddToCard}
                   variant="contained"
                   type="submit"
                   sx={{ padding: ".8rem 2rem", marginTop: "2rem" }}
@@ -424,7 +429,7 @@ export default function ProductDetails() {
                     </Grid>
                   </Grid>
                 </Box>
-                
+
                 <Box>
                   <Grid
                     container
@@ -438,7 +443,12 @@ export default function ProductDetails() {
                     <Grid xs={7}>
                       <LinearProgress
                         className="bg-[#885c0a]"
-                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 ,color:"yellow"}}
+                        sx={{
+                          bgcolor: "#d0d0d0",
+                          borderRadius: 4,
+                          height: 7,
+                          color: "yellow",
+                        }}
                         variant="determinate"
                         value={25}
                         // color="success"
@@ -516,10 +526,9 @@ export default function ProductDetails() {
             {/* {gounsPage1 .map((item) => (
               <HomeProductCard product={item} />
             ))} */}
-            {mensShoesPage1.slice(1,11).map((item) => (
+            {mensShoesPage1.slice(1, 11).map((item) => (
               <HomeSectionCard product={item} />
             ))}
-            
           </div>
         </section>
       </div>

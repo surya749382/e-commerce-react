@@ -12,6 +12,7 @@ import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import TextField from "@mui/material/TextField";
 import { navigation } from "./navigationData";
+import { useNavigate } from "react-router-dom";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -22,6 +23,7 @@ export default function Navigation() {
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
   const jwt = localStorage.getItem("jwt");
+  const navigate = useNavigate()
 
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -38,7 +40,7 @@ export default function Navigation() {
   };
 
   const handleCategoryClick = (category, section, item, close) => {
-    // navigate(`/${category.id}/${section.id}/${item.id}`);
+    navigate(`/${category.id}/${section.id}/${item.id}`);
     close();
   };
 
@@ -231,9 +233,9 @@ export default function Navigation() {
                 {/* <Link to="/"> */}
                 <span className="sr-only">Your Company</span>
                 <img
-                //   src="https://res.cloudinary.com/ddkso1wxi/image/upload/v1675919455/Logo/Copy_of_Zosh_Academy_nblljp.png"
+                
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHbg3eYf0324Ghoqplg9HIPPwoJUoCT-RwOA&s"
-                  alt="Shopwithzosh"
+                  alt="logo"
                   className="h-12 w-12 mr-2"
                 />
                 {/* </Link> */}
@@ -411,11 +413,9 @@ export default function Navigation() {
                           "aria-labelledby": "basic-button",
                         }}
                       >
-                        {/* <MenuItem >
-                          {auth.user?.role === "ROLE_ADMIN"
-                            ? "Admin Dashboard"
-                            : "My Orders"}
-                        </MenuItem> */}
+                        <MenuItem  onClick={()=>navigate('/account/order')}>
+                          My Order
+                        </MenuItem>
                         <MenuItem>Logout</MenuItem>
                       </Menu>
                     </div>

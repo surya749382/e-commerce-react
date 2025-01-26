@@ -13,9 +13,10 @@ const OrderTracker = ({ activeStep }) => {
   return (
     <div className="w-full ">
       <Stepper activeStep={activeStep} alternativeLabel>
-        {steps.map((lable) => (
-          <Step>
-            <StepLabel sx={{ color: "#9155fd", font: "44px" }}></StepLabel>
+        
+         {steps.map((label) => (
+          <Step key={label}>
+            <StepLabel  sx={{ color: '#9155FD',fontSize: '44px' }}  className={``}>{label}</StepLabel>
           </Step>
         ))}
       </Stepper>

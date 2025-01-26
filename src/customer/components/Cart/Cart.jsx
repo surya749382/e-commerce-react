@@ -2,8 +2,13 @@ import React from "react";
 import CartItem from "./CartItem";
 import {  Button } from "@mui/material";
 import { mens_kurta } from "../../../data/Mens_kurta/Mens_kurta";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+const navigate = useNavigate();
+const handleCheckOut = ()=>{
+  navigate('/checkout?step=2')
+}
 
   
   return (
@@ -45,8 +50,9 @@ const Cart = () => {
           </div>
 
           <Button
+          onClick={handleCheckOut}
             variant="contained"
-            type="submit"
+            // type="submit"
             sx={{ padding: ".8rem 2rem", marginTop: "2rem", width: "100%" }}
           >
             Check Out

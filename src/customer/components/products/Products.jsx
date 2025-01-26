@@ -1,5 +1,12 @@
 import { Fragment, useState } from "react";
-import { Dialog, Disclosure, DisclosureButton, DisclosurePanel, Menu, Transition } from "@headlessui/react";
+import {
+  Dialog,
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+  Menu,
+  Transition,
+} from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
@@ -15,7 +22,7 @@ import FormControl from "@mui/material/FormControl";
 import Pagination from "@mui/material/Pagination";
 
 import { filters, singleFilter, sortOptions } from "./FilterData";
-import ProductCard from './ProductCard'
+import ProductCard from "./ProductCard";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 // import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -31,10 +38,10 @@ function classNames(...classes) {
 export default function Products() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const navigate = useNavigate();
-//   const dispatch = useDispatch();
+  //   const dispatch = useDispatch();
   const jwt = localStorage.getItem("jwt");
   const param = useParams();
-//   const { customersProduct } = useSelector((store) => store);
+  //   const { customersProduct } = useSelector((store) => store);
   const location = useLocation();
   const [isLoaderOpen, setIsLoaderOpen] = useState(false);
 
@@ -43,15 +50,15 @@ export default function Products() {
   };
 
   // const filter = decodeURIComponent(location.search);
-//   const decodedQueryString = decodeURIComponent(location.search);
-//   const searchParams = new URLSearchParams(decodedQueryString);
-//   const colorValue = searchParams.get("color");
-//   const sizeValue = searchParams.get("size");
-//   const price = searchParams.get("price");
-//   const disccount = searchParams.get("disccout");
-//   const sortValue = searchParams.get("sort");
-//   const pageNumber = searchParams.get("page") || 1;
-//   const stock = searchParams.get("stock");
+  //   const decodedQueryString = decodeURIComponent(location.search);
+  //   const searchParams = new URLSearchParams(decodedQueryString);
+  //   const colorValue = searchParams.get("color");
+  //   const sizeValue = searchParams.get("size");
+  //   const price = searchParams.get("price");
+  //   const disccount = searchParams.get("disccout");
+  //   const sortValue = searchParams.get("sort");
+  //   const pageNumber = searchParams.get("page") || 1;
+  //   const stock = searchParams.get("stock");
 
   // console.log("location - ", colorValue, sizeValue,price,disccount);
 
@@ -61,39 +68,39 @@ export default function Products() {
     // const query = searchParams.toString();
     // navigate({ search: `?${query}` });
   };
-//   const handlePaginationChange = (event, value) => {
-//     // const searchParams = new URLSearchParams(location.search);
-//     searchParams.set("page", value);
-//     const query = searchParams.toString();
-//     // navigate({ search: `?${query}` });
-//   };
+  //   const handlePaginationChange = (event, value) => {
+  //     // const searchParams = new URLSearchParams(location.search);
+  //     searchParams.set("page", value);
+  //     const query = searchParams.toString();
+  //     // navigate({ search: `?${query}` });
+  //   };
 
-//   useEffect(() => {
-//     const [minPrice, maxPrice] =
-//       price === null ? [0, 0] : price.split("-").map(Number);
-//     const data = {
-//       category: param.lavelThree,
-//       colors: colorValue || [],
-//       sizes: sizeValue || [],
-//       minPrice: minPrice || 0,
-//       maxPrice: maxPrice || 10000,
-//       minDiscount: disccount || 0,
-//       sort: sortValue || "price_low",
-//       pageNumber: pageNumber - 1,
-//       pageSize: 10,
-//       stock: stock,
-//     };
-//     // dispatch(findProducts(data));
-//   }, [
-//     param.lavelThree,
-//     colorValue,
-//     sizeValue,
-//     price,
-//     disccount,
-//     sortValue,
-//     pageNumber,
-//     stock,
-//   ]);
+  //   useEffect(() => {
+  //     const [minPrice, maxPrice] =
+  //       price === null ? [0, 0] : price.split("-").map(Number);
+  //     const data = {
+  //       category: param.lavelThree,
+  //       colors: colorValue || [],
+  //       sizes: sizeValue || [],
+  //       minPrice: minPrice || 0,
+  //       maxPrice: maxPrice || 10000,
+  //       minDiscount: disccount || 0,
+  //       sort: sortValue || "price_low",
+  //       pageNumber: pageNumber - 1,
+  //       pageSize: 10,
+  //       stock: stock,
+  //     };
+  //     // dispatch(findProducts(data));
+  //   }, [
+  //     param.lavelThree,
+  //     colorValue,
+  //     sizeValue,
+  //     price,
+  //     disccount,
+  //     sortValue,
+  //     pageNumber,
+  //     stock,
+  //   ]);
 
   const handleFilter = (value, sectionId) => {
     const searchParams = new URLSearchParams(location.search);
@@ -107,14 +114,14 @@ export default function Products() {
       if (filterValues.length === 0) {
         searchParams.delete(sectionId);
       }
-    //   console.log("includes");
+      //   console.log("includes");
     } else {
-    //   Remove all values for the current section
-    //   searchParams.delete(sectionId);
+      //   Remove all values for the current section
+      //   searchParams.delete(sectionId);
       filterValues.push(value);
     }
 
-    if (filterValues.length > 0){
+    if (filterValues.length > 0) {
       searchParams.set(sectionId, filterValues.join(","));
     }
     // history.push({ search: searchParams.toString() });
@@ -129,15 +136,15 @@ export default function Products() {
     navigate({ search: `?${query}` });
   };
 
-//   useEffect(() => {
-//     // if (customersProduct.loading) {
-//     if (true) {
-//       setIsLoaderOpen(true);
-//     } else {
-//       setIsLoaderOpen(false);
-//     }
-//   }, []);
-//   }, [customersProduct.loading]);
+  //   useEffect(() => {
+  //     // if (customersProduct.loading) {
+  //     if (true) {
+  //       setIsLoaderOpen(true);
+  //     } else {
+  //       setIsLoaderOpen(false);
+  //     }
+  //   }, []);
+  //   }, [customersProduct.loading]);
 
   return (
     <div className="bg-white -z-20 ">
@@ -334,8 +341,6 @@ export default function Products() {
             <div>
               <h2 className="py-5 font-semibold opacity-60 text-lg">Filters</h2>
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
-
-
                 {/* {************************************************ desktop filter ***********************************} */}
                 {/* Filters */}
                 <form className="hidden lg:block border rounded-md p-5">
@@ -454,7 +459,6 @@ export default function Products() {
                     </Disclosure>
                   ))}
                 </form>
-                
 
                 {/* Product grid */}
                 <div className="lg:col-span-4 w-full ">
@@ -474,10 +478,10 @@ export default function Products() {
         <section className="w-full px-[3.6rem]">
           <div className="mx-auto px-4 py-5 flex justify-center shadow-lg border rounded-md">
             <Pagination
-            //   count={customersProduct.products?.totalPages}
+              //   count={customersProduct.products?.totalPages}
               color="primary"
               className=""
-            //   onChange={handlePaginationChange}
+              //   onChange={handlePaginationChange}
             />
           </div>
         </section>
