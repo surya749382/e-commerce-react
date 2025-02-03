@@ -7,9 +7,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const handleSubmit = (event) =>{
     event.preventDefault();
-
-
-
+   
   }
   return (
     <div>
@@ -48,12 +46,13 @@ const LoginForm = () => {
           </Grid>
         </Grid>
       </form>
-      <div className="flex justify-center flex-col items-center">
-        <div className="py-3 flex items-center">
-          <p>If your have already registered account ? </p>
-          <Button onClick={()=> {navigate("/login")}} className="ml-5 " size="small">Login</Button>
-        </div>
-      </div>
+       <div className="flex justify-center flex-col items-center">
+              <div className="py-3 flex items-center">
+                <p>If you don't have account ? </p>
+                <Button onClick={()=> navigate("/register")} className="ml-5 " size="small">Register</Button>
+              </div>
+            </div>
+     
     </div>
   );
 };
