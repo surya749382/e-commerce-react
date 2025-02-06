@@ -12,8 +12,10 @@ import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import TextField from "@mui/material/TextField";
 import { navigation } from "./navigationData";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import AuthModal from "../../../auth/AuthModal";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser, logout } from "../../../redux/Auth/Action";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -25,6 +27,9 @@ export default function Navigation() {
   const openUserMenu = Boolean(anchorEl);
   const jwt = localStorage.getItem("jwt");
   const navigate = useNavigate()
+  const {auth} = useSelector((store)=>store) // const auth = useSelector((store) => store.auth); both are same
+  const dispatch = useDispatch()
+  const location = useLocation()
 
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -38,12 +43,39 @@ export default function Navigation() {
   };
   const handleClose = () => {
     setOpenAuthModal(false);
+    
   };
 
   const handleCategoryClick = (category, section, item, close) => {
     navigate(`/${category.id}/${section.id}/${item.id}`);
     close();
   };
+
+ 
+   useEffect(()=>{
+      if(jwt){
+  
+  dispatch(getUser(jwt));
+
+}
+    },[jwt, auth.jwt])
+
+    useEffect(()=>{
+      if(auth.user){
+        handleClose()
+
+      }
+
+      // console.log("***************" , auth)
+      if(location.pathname ==="/login" || location.pathname === "/register"){
+        navigate(-1)
+      }
+    },[auth?.user])
+
+    const handleLogout = ()=>{
+      dispatch(logout())
+      handleCloseUserMenu()
+    }
 
   return (
     <div className="bg-white pb-10">
@@ -379,7 +411,7 @@ export default function Navigation() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {false ? (
+                  {auth.user?.firstName ? (
                     <div>
                       <Avatar
                         className="text-white"
@@ -394,8 +426,9 @@ export default function Navigation() {
                           cursor: "pointer",
                         }}
                       >
-                        R
-                      </Avatar>
+                        {auth.user?.firstName[0].toUpperCase()}
+                        {/* {console.log(auth)} */}
+                        </Avatar>
                       {/* <Button
                         id="basic-button"
                         aria-controls={open ? "basic-menu" : undefined}
@@ -414,10 +447,11 @@ export default function Navigation() {
                           "aria-labelledby": "basic-button",
                         }}
                       >
+                          <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
                         <MenuItem  onClick={()=>navigate('/account/order')}>
                           My Order
                         </MenuItem>
-                        <MenuItem>Logout</MenuItem>
+                        <MenuItem onClick={handleLogout}>Logout</MenuItem>
                       </Menu>
                     </div>
                   ) : (
