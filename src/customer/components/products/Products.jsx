@@ -24,8 +24,9 @@ import Pagination from "@mui/material/Pagination";
 import { filters, singleFilter, sortOptions } from "./FilterData";
 import ProductCard from "./ProductCard";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import {findProducts} from "../../../redux/products/Action"
 // import {findProducts} from "../../../../Redux/Customers/Product/Action";
 import { Backdrop, CircularProgress, MenuItem } from "@mui/material";
 import { mens_kurta } from "../../../data/Mens_kurta/Mens_kurta";
@@ -38,10 +39,10 @@ function classNames(...classes) {
 export default function Products() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const navigate = useNavigate();
-  //   const dispatch = useDispatch();
+    const dispatch = useDispatch();
   const jwt = localStorage.getItem("jwt");
   const param = useParams();
-  //   const { customersProduct } = useSelector((store) => store);
+    const { products } = useSelector(store => store);
   const location = useLocation();
   const [isLoaderOpen, setIsLoaderOpen] = useState(false);
 
@@ -49,16 +50,16 @@ export default function Products() {
     setIsLoaderOpen(false);
   };
 
-  // const filter = decodeURIComponent(location.search);
-  //   const decodedQueryString = decodeURIComponent(location.search);
-  //   const searchParams = new URLSearchParams(decodedQueryString);
-  //   const colorValue = searchParams.get("color");
-  //   const sizeValue = searchParams.get("size");
-  //   const price = searchParams.get("price");
-  //   const disccount = searchParams.get("disccout");
-  //   const sortValue = searchParams.get("sort");
-  //   const pageNumber = searchParams.get("page") || 1;
-  //   const stock = searchParams.get("stock");
+  const filter = decodeURIComponent(location.search);
+    const decodedQueryString = decodeURIComponent(location.search);
+    const searchParams = new URLSearchParams(decodedQueryString);
+    const colorValue = searchParams.get("color");
+    const sizeValue = searchParams.get("size");
+    const price = searchParams.get("price");
+    const disccount = searchParams.get("disccout");
+    const sortValue = searchParams.get("sort");
+    const pageNumber = searchParams.get("page") || 1;
+    const stock = searchParams.get("stock");
 
   // console.log("location - ", colorValue, sizeValue,price,disccount);
 
@@ -68,39 +69,41 @@ export default function Products() {
     // const query = searchParams.toString();
     // navigate({ search: `?${query}` });
   };
-  //   const handlePaginationChange = (event, value) => {
-  //     // const searchParams = new URLSearchParams(location.search);
-  //     searchParams.set("page", value);
-  //     const query = searchParams.toString();
-  //     // navigate({ search: `?${query}` });
-  //   };
+    const handlePaginationChange = (event, value) => {
+      const searchParams = new URLSearchParams(location.search);
+      searchParams.set("page", value);
+      const query = searchParams.toString();
+      navigate({ search: `?${query}` });
+    };
 
-  //   useEffect(() => {
-  //     const [minPrice, maxPrice] =
-  //       price === null ? [0, 0] : price.split("-").map(Number);
-  //     const data = {
-  //       category: param.lavelThree,
-  //       colors: colorValue || [],
-  //       sizes: sizeValue || [],
-  //       minPrice: minPrice || 0,
-  //       maxPrice: maxPrice || 10000,
-  //       minDiscount: disccount || 0,
-  //       sort: sortValue || "price_low",
-  //       pageNumber: pageNumber - 1,
-  //       pageSize: 10,
-  //       stock: stock,
-  //     };
-  //     // dispatch(findProducts(data));
-  //   }, [
-  //     param.lavelThree,
-  //     colorValue,
-  //     sizeValue,
-  //     price,
-  //     disccount,
-  //     sortValue,
-  //     pageNumber,
-  //     stock,
-  //   ]);
+    useEffect(() => {
+      const [minPrice, maxPrice] =
+        price === null ? [0, 0] : price.split("-").map(Number);
+      const data = {
+        category: param.levelThree,
+        colors: colorValue || [],
+        sizes: sizeValue || [],
+        minPrice: minPrice || 0,
+        maxPrice: maxPrice || 10000,
+        minDiscount: disccount || 0,
+        sort: sortValue || "price_low",
+        pageNumber: pageNumber - 1,
+        pageSize: 10,
+        stock: stock,
+      };
+      dispatch(findProducts(data));
+      console.log('products.content' , products.content)
+      
+    }, [
+      param.lavelThree,
+      colorValue,
+      sizeValue,
+      price,
+      disccount,
+      sortValue,
+      pageNumber,
+      stock,
+    ]);
 
   const handleFilter = (value, sectionId) => {
     const searchParams = new URLSearchParams(location.search);
@@ -136,15 +139,15 @@ export default function Products() {
     navigate({ search: `?${query}` });
   };
 
-  //   useEffect(() => {
-  //     // if (customersProduct.loading) {
-  //     if (true) {
-  //       setIsLoaderOpen(true);
-  //     } else {
-  //       setIsLoaderOpen(false);
-  //     }
-  //   }, []);
-  //   }, [customersProduct.loading]);
+    // useEffect(() => {
+    //   // if (customersProduct.loading) {
+    //   if (true) {
+    //     setIsLoaderOpen(true);
+    //   } else {
+    //     setIsLoaderOpen(false);
+    //   }
+    // }, []);
+    // }, [customersProduct.loading]);
 
   return (
     <div className="bg-white -z-20 ">
@@ -266,7 +269,7 @@ export default function Products() {
         <main className="mx-auto px-4 lg:px-14 ">
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-6">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-              Product
+              New Arrivals
             </h1>
 
             <div className="flex items-center">
@@ -335,7 +338,7 @@ export default function Products() {
 
           <section aria-labelledby="products-heading" className="pb-24 pt-6">
             <h2 id="products-heading" className="sr-only">
-              Products
+              New Arrivals
             </h2>
 
             <div>
@@ -463,8 +466,13 @@ export default function Products() {
                 {/* Product grid */}
                 <div className="lg:col-span-4 w-full ">
                   <div className="flex flex-wrap justify-center bg-white border py-5 rounded-md ">
-                    {/* {customersProduct?.products?.content?.map((item) => ( */}
-                    {mens_kurta.map((item) => (
+                    
+                   
+                    {
+                      console.log("products.products.content", products.products.content)
+                     
+                    }
+                    {products.products.content?.map((item) => (
                       <ProductCard product={item} />
                     ))}
                   </div>
@@ -478,10 +486,10 @@ export default function Products() {
         <section className="w-full px-[3.6rem]">
           <div className="mx-auto px-4 py-5 flex justify-center shadow-lg border rounded-md">
             <Pagination
-              //   count={customersProduct.products?.totalPages}
+                count={products.products?.totalPages}
               color="primary"
               className=""
-              //   onChange={handlePaginationChange}
+                onChange={handlePaginationChange}
             />
           </div>
         </section>

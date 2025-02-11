@@ -14,6 +14,10 @@ import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
 // import { lengha_page1 } from "../../../../Data/Women/LenghaCholi";
 // import { gounsPage1 } from "../../../../Data/Gouns/gouns";
 import { mensShoesPage1 } from "../../../data/mens_shoes";
+import { findProductsById } from "../../../redux/products/Action";
+
+import { useDispatch, useSelector } from "react-redux";
+import { addItemToCart } from "../../../redux/cart/Action";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -75,14 +79,16 @@ function classNames(...classes) {
 }
 
 export default function ProductDetails() {
-  //   const [selectedSize, setSelectedSize] = useState();
-  //   const [activeImage, setActiveImage] = useState(null);
+    const [selectedSize, setSelectedSize] = useState();
+    // const [activeImage, setActiveImage] = useState();
   const navigate = useNavigate();
-  //   const dispatch = useDispatch();
-  //   const { customersProduct } = useSelector((store) => store);
+  const params = useParams();
+    const dispatch = useDispatch();
+    const { products } = useSelector((store) => store);
   //   const { productId } = useParams();
   //   const jwt = localStorage.getItem("jwt");
-  // console.log("param",productId,customersProduct.product)
+  // console.log("params",params?.productId)
+  // console.log("products",products?.product)
 
   //   const handleSetActiveImage = (image) => {
   //     setActiveImage(image);
@@ -95,14 +101,24 @@ export default function ProductDetails() {
   //   };
 
   const handleAddToCard = () => {
+    const data = {productId:params.productId,size: selectedSize}
+    console.log("handleAddToCart", data)
+     dispatch(addItemToCart(data))
     navigate("/cart");
   };
 
-  //   useEffect(() => {
-  //     const data = { productId: Number(productId), jwt };
-  //     dispatch(findProductById(data));
-  //     dispatch(getAllReviews(productId));
-  //   }, [productId]);
+    // useEffect(() => {
+    //   const data = { productId: Number(productId), jwt };
+    //   dispatch(findProductById(data));
+    //   dispatch(getAllReviews(productId));
+    // }, [productId]);
+
+  useEffect(()=>{
+    const data = {productId:params.productId}
+// console.log("data   ...",data)
+    dispatch(findProductsById( data ))
+  },[params.productId]) 
+  // },[]) 
 
   return (
     <div className="bg-white lg:px-20">
@@ -112,7 +128,7 @@ export default function ProductDetails() {
             role="list"
             className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
           >
-            {product.breadcrumbs.map((breadcrumb) => (
+            {product.product?.map((breadcrumb) => (
               // <li key={breadcrumb.id}>
               <li key={breadcrumb.id}>
                 <div className="flex items-center">
@@ -152,10 +168,17 @@ export default function ProductDetails() {
           {/* Image gallery */}
           <div className="flex flex-col items-center ">
             <div className=" overflow-hidden rounded-lg max-w-[30rem] max-h-[35rem]">
+            {
+                  // console.log("image" , product.images[0].src)
+                }
               <img
-                // src={activeImage?.src || customersProduct.product?.imageUrl}
-                src={product.images[0].src}
+                // src={activeImage?.src || products.product?.imageUrl}
+               
+                src={products.product?.imageUrl}
+
+                // src={product.images[0].src}
                 alt={product.images[0].alt}
+
                 className="h-full w-full object-cover object-center"
               />
             </div>
@@ -179,12 +202,12 @@ export default function ProductDetails() {
           <div className="lg:col-span-1 mx-auto max-w-2xl px-4 pb-16 sm:px-6  lg:max-w-7xl  lg:px-8 lg:pb-24">
             <div className="lg:col-span-2">
               <h1 className="text-lg lg:text-xl font-semibold tracking-tight text-gray-900  ">
-                {/* {customersProduct.product?.brand} */}
-                <h1>UniversalOutfit</h1>
+                {products.product?.brand}
+                
               </h1>
               <h1 className="text-lg lg:text-xl tracking-tight text-gray-900 opacity-60 pt-1">
-                {/* {customersProduct.product?.title} */}
-                {product?.name}
+                {products.product?.title}
+              
               </h1>
             </div>
 
@@ -193,12 +216,12 @@ export default function ProductDetails() {
               <h2 className="sr-only">Product information</h2>
               <div className="flex space-x-5 items-center text-lg lg:text-xl tracking-tight text-gray-900 mt-6">
                 <p className="font-semibold text-green-600">
-                  {/* ₹{customersProduct.product?.discountedPrice} */}
-                  {product?.price}
+                  ₹{products.product?.discountedPrice}
+                 
                 </p>
-                <p className="opacity-50 line-through">₹{product?.price}</p>
+                <p className="opacity-50 line-through">{products.product?.price}</p>
                 <p className="text-green-600 font-semibold">
-                  {/* {customersProduct.product?.discountPersent}% Off */}
+                  {products.product?.discountPercent}% Off
                 </p>
               </div>
 
@@ -232,8 +255,8 @@ export default function ProductDetails() {
                   </div>
 
                   <RadioGroup
-                    // value={selectedSize}
-                    // onChange={setSelectedSize}
+                    value={selectedSize}
+                    onChange={setSelectedSize}
                     className="mt-4"
                   >
                     <RadioGroup.Label className="sr-only">

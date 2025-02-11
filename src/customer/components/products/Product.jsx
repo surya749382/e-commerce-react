@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   Dialog,
   DialogBackdrop,
@@ -17,6 +17,8 @@ import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from
 import { mens_kurta } from '../../../data/Mens_kurta/Mens_kurta'
 import ProductCard from './ProductCard'
 import { filters, singleFilter } from './FilterData'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 const sortOptions = [
   
@@ -31,6 +33,47 @@ function classNames(...classes) {
 
 export default function Product() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
+  const param = useParams();
+  const dispatch = useDispatch();
+
+
+  const decodedQueryString = decodeURIComponent(location.search)
+  const searchParams = URLSearchParams(decodedQueryString)
+  const colorValue = searchParams.get("color")
+  const sizeValue = searchParams.get("size")
+  const priceValue = searchParams.get("price")
+  const discount = searchParams.get("discount")
+  const sortValue = searchParams.get('sort')
+  const pageNumber = searchParams.get("page") || 1;
+  const stock = searchParams.get("stock");
+
+
+  useEffect(()=>{
+    const [minPrice, maxPrice ]= priceValue === null? [0,10000]:priceValue.split("-").map(Number)
+    const data = {
+      category : param.levelThree,
+      color:param.colorValue || [],
+      sizes : sizeValue || [],
+      minPrice,
+      maxPrice,
+      minDiscount:discount || 0,
+      sort: sortValue || "price_low",
+      pageNumber:pageNumber -1,
+      pageSize:10,
+      stock:stock
+    }
+    // dispatch(findProducts(data))
+  }, [param.levelThree,
+    colorValue,
+    sizeValue,
+    priceValue,
+    discount,
+    sortValue,
+    pageNumber,
+    stock
+  ])
 
   return (
     <div className="bg-white">
