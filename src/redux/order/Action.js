@@ -27,6 +27,7 @@ export const createOrder = (reqData) => async (dispatch) => {
       reqData.address,
       
     );
+    console.log("created order - ", data);
     if (data.id) {
       reqData.navigate({ search: `step=3&order_id=${data.id}` });
     }

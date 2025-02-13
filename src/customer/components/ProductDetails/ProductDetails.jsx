@@ -79,8 +79,8 @@ function classNames(...classes) {
 }
 
 export default function ProductDetails() {
-    const [selectedSize, setSelectedSize] = useState();
-    // const [activeImage, setActiveImage] = useState();
+    const [selectedSize, setSelectedSize] = useState("");
+    const [activeImage, setActiveImage] = useState();
   const navigate = useNavigate();
   const params = useParams();
     const dispatch = useDispatch();
@@ -100,9 +100,10 @@ export default function ProductDetails() {
   // navigate("/cart");
   //   };
 
-  const handleAddToCard = () => {
-    const data = {productId:params.productId,size: selectedSize}
-    console.log("handleAddToCart", data)
+  const handleAddToCard = (e) => {
+    e.preventDefault();
+    const data = {productId:params.productId,size: selectedSize.name}
+    // console.log("handleAddToCart", data)
      dispatch(addItemToCart(data))
     navigate("/cart");
   };

@@ -1,24 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import AddressCard from '../AddressCard/AddressCard'
 import { Button } from '@mui/material'
 import { mens_kurta } from '../../../data/Mens_kurta/Mens_kurta'
 import CartItem from '../Cart/CartItem'
+import { useDispatch, useSelector } from 'react-redux'
+import { getOrderById } from '../../../redux/order/Action'
+import { useLocation } from 'react-router-dom'
 
 const OrderSummary = () => {
+  const dispach = useDispatch()
+  const location = useLocation()
+  const {order} = useSelector(store=>store)
+  const searchParams = new URLSearchParams(location.search)
+  const orderId= searchParams.get("order_id")
+
+  useEffect(()=>{
+    dispach(getOrderById(orderId))
+  },[orderId])
   return (
     <div>
       <div className='p-5 shadow-lg roundeds-md border'>
-          <AddressCard />
+          <AddressCard address = {order.order?.shippingAddress}/>
       </div>
       <div className="">
       {true && <div className="lg:grid grid-cols-3  relative">
         <div className="lg:col-span-2 lg:px-5 bg-white">
         <div className=" space-y-3">
-          {mens_kurta.slice(1,5).map((item) => (
+          { order.order?.orderItems.map((item) => (
             <>
               <CartItem item={item} showButton={true}/>
             </>
-          ))}
+          ))} 
         </div>
       </div>
       <div className="px-5 sticky top-0 h-[100vh] mt-5 lg:mt-0 ">
@@ -29,12 +41,12 @@ const OrderSummary = () => {
           <div className="space-y-3 font-semibold">
             <div className="flex justify-between pt-3 text-black ">
             
-              <span>Price 5 item</span>
-              <span>₹2210</span>
+              <span>Price {order.order?.totalItem} item</span>
+              <span>₹{order.order?.totalPrice}</span>
             </div>
             <div className="flex justify-between">
               <span>Discount</span>
-              <span className="text-green-700">-₹1000</span>
+              <span className="text-green-700">-₹{order.order?.discount}</span>
             </div>
             <div className="flex justify-between">
               <span>Delivery Charges</span>
@@ -43,7 +55,7 @@ const OrderSummary = () => {
             <hr />
             <div className="flex justify-between font-bold text-lg">
               <span>Total Amount</span>
-              <span className="text-green-700">₹1200</span>
+              <span className="text-green-700">₹{order.order?.totalDiscountedPrice}</span>
             </div>
           </div>
 
