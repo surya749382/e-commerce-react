@@ -1,4 +1,4 @@
-import { Button, Grid, TextField } from "@mui/material";
+import { Button, Grid, TextField, Typography, Paper } from "@mui/material";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -8,9 +8,6 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  
-
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -19,13 +16,16 @@ const LoginForm = () => {
       email: data.get("email"),
       password: data.get("password"),
     };
-    dispatch(login(userData))
+    dispatch(login(userData));
     console.log(userData);
   };
 
-
   return (
-    <div>
+    <Paper sx={{ padding: 4, borderRadius: 2, boxShadow: 3 }}>
+      <Typography variant="h4" align="center" color="primary" gutterBottom>
+        Login to Your Account
+      </Typography>
+
       <form onSubmit={handleSubmit}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
@@ -33,47 +33,56 @@ const LoginForm = () => {
               required
               id="email"
               name="email"
-              label="Email "
+              label="Email"
+              type="email"
               fullWidth
               autoComplete="email"
+              variant="outlined"
+              sx={{ bgcolor: 'white' }}
             />
           </Grid>
+
           <Grid item xs={12}>
             <TextField
               required
               id="password"
               name="password"
-              label="Password "
+              label="Password"
+              type="password"
               fullWidth
               autoComplete="password"
+              variant="outlined"
+              sx={{ bgcolor: 'white' }}
             />
           </Grid>
+
           <Grid item xs={12}>
             <Button
-              className="bg-[#9153FD] w-full"
               type="submit"
               variant="contained"
               size="large"
-              sx={{ padding: ".8rem 0", bgcolor: "#9153FD" }}
+              fullWidth
+              sx={{
+                padding: "0.8rem",
+                bgcolor: "#9153FD",
+                "&:hover": { bgcolor: "#7c42c2" },
+              }}
             >
               Login
             </Button>
           </Grid>
         </Grid>
       </form>
-      <div className="flex justify-center flex-col items-center">
-        <div className="py-3 flex items-center">
-          <p>If you don't have account ? </p>
-          <Button
-            onClick={() => navigate("/register")}
-            className="ml-5 "
-            size="small"
-          >
+
+      <div className="flex justify-center flex-col items-center mt-4">
+        <Typography variant="body2" color="textSecondary">
+          Don't have an account?{" "}
+          <Button onClick={() => navigate("/register")} color="primary" size="small">
             Register
           </Button>
-        </div>
+        </Typography>
       </div>
-    </div>
+    </Paper>
   );
 };
 

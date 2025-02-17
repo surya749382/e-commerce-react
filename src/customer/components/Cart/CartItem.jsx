@@ -37,7 +37,7 @@ const CartItem = ({ item }) => {
           {/* <p className="font-semibold">title</p> */}
           <p className="font-semibold"> {item.product?.title}</p>
 
-          <p className="opacity-70">{item.size},White</p>
+          <p className="opacity-70">size: {item.size}, color: {item.product?.color}</p>
           <p className="opacity-70 mt-2">Seller: {item.product?.brand}</p>
           <div className="flex space-x-2 items-center pt-3">
             <p className="opacity-50 line-through">₹ {item?.price}</p>

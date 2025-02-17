@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
 import AddressCard from '../AddressCard/AddressCard'
 import { Button } from '@mui/material'
-import { mens_kurta } from '../../../data/Mens_kurta/Mens_kurta'
+import { mens_kurta } from '../../../data/Men/Mens_kurta'
 import CartItem from '../Cart/CartItem'
 import { useDispatch, useSelector } from 'react-redux'
 import { getOrderById } from '../../../redux/order/Action'
 import { useLocation } from 'react-router-dom'
+import { HandymanOutlined } from '@mui/icons-material'
+import { createPayment } from '../../../redux/payment/Action'
 
 const OrderSummary = () => {
   const dispach = useDispatch()
@@ -17,6 +19,11 @@ const OrderSummary = () => {
   useEffect(()=>{
     dispach(getOrderById(orderId))
   },[orderId])
+
+  const handleCheckOut = ()=>{
+    console.log("handle checkout clicked : orderId" , orderId)
+    dispach(createPayment(orderId))
+}
   return (
     <div>
       <div className='p-5 shadow-lg roundeds-md border'>
@@ -26,9 +33,9 @@ const OrderSummary = () => {
       {true && <div className="lg:grid grid-cols-3  relative">
         <div className="lg:col-span-2 lg:px-5 bg-white">
         <div className=" space-y-3">
-          { order.order?.orderItems.map((item) => (
+          { order.order?.orderItems.map((item,index) => (
             <>
-              <CartItem item={item} showButton={true}/>
+              <CartItem item={item} key={index} showButton={true}/>
             </>
           ))} 
         </div>
@@ -63,6 +70,7 @@ const OrderSummary = () => {
             variant="contained"
             type="submit"
             sx={{ padding: ".8rem 2rem", marginTop: "2rem", width: "100%" }}
+            onClick={handleCheckOut}
           >
             Check Out
           </Button>

@@ -27,9 +27,8 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {findProducts} from "../../../redux/products/Action"
-// import {findProducts} from "../../../../Redux/Customers/Product/Action";
 import { Backdrop, CircularProgress, MenuItem } from "@mui/material";
-import { mens_kurta } from "../../../data/Mens_kurta/Mens_kurta";
+import { mens_kurta } from "../../../data/Men/Mens_kurta";
 // import { useDispatch } from "react-redux";
 
 function classNames(...classes) {
@@ -42,7 +41,7 @@ export default function Products() {
     const dispatch = useDispatch();
   const jwt = localStorage.getItem("jwt");
   const param = useParams();
-    const { products } = useSelector(store => store);
+    const { products } = useSelector(store => store?.products);
   const location = useLocation();
   const [isLoaderOpen, setIsLoaderOpen] = useState(false);
 
@@ -64,10 +63,10 @@ export default function Products() {
   // console.log("location - ", colorValue, sizeValue,price,disccount);
 
   const handleSortChange = (value) => {
-    // const searchParams = new URLSearchParams(location.search);
-    // searchParams.set("sort", value);
-    // const query = searchParams.toString();
-    // navigate({ search: `?${query}` });
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.set("sort", value);
+    const query = searchParams.toString();
+    navigate({ search: `?${query}` });
   };
     const handlePaginationChange = (event, value) => {
       const searchParams = new URLSearchParams(location.search);
@@ -92,7 +91,7 @@ export default function Products() {
         stock: stock,
       };
       dispatch(findProducts(data));
-      console.log('products.content' , products.content)
+      // console.log('products.content' , products.content)
       
     }, [
       param.lavelThree,
@@ -103,6 +102,7 @@ export default function Products() {
       sortValue,
       pageNumber,
       stock,
+      location.pathname
     ]);
 
   const handleFilter = (value, sectionId) => {
@@ -198,6 +198,68 @@ export default function Products() {
 
                   <form className="mt-4 border-t border-gray-200">
                     {filters.map((section) => (
+                      <Disclosure
+                        as="div"
+                        key={section.id}
+                        className="border-t border-gray-200 px-4 py-6"
+                        // open={false}
+                      >
+                        {({ open }) => (
+                          <>
+                            <h3 className="-mx-2 -my-3 flow-root">
+                              <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
+                                <span className="font-medium text-gray-900">
+                                  {section.name}
+                                </span>
+                                <span className="ml-6 flex items-center">
+                                  {open ? (
+                                    <MinusIcon
+                                      className="h-5 w-5"
+                                      aria-hidden="true"
+                                    />
+                                  ) : (
+                                    <PlusIcon
+                                      className="h-5 w-5"
+                                      aria-hidden="true"
+                                    />
+                                  )}
+                                </span>
+                              </Disclosure.Button>
+                            </h3>
+                            <Disclosure.Panel className="pt-6">
+                              <div className="space-y-6">
+                                {section.options.map((option, optionIdx) => (
+                                  <div
+                                    key={option.value}
+                                    className="flex items-center"
+                                  >
+                                    <input
+                                      id={`filter-mobile-${section.id}-${optionIdx}`}
+                                      name={`${section.id}[]`}
+                                      defaultValue={option.value}
+                                      type="checkbox"
+                                      defaultChecked={option.checked}
+                                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                      onChange={() =>
+                                        handleFilter(option.value, section.id)
+                                      }
+                                    />
+                                    <label
+                                      htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
+                                      className="ml-3 min-w-0 flex-1 text-gray-500"
+                                      // onClick={()=>handleFilter(option.value,section.id)}
+                                    >
+                                      {option.label}
+                                    </label>
+                                  </div>
+                                ))}
+                              </div>
+                            </Disclosure.Panel>
+                          </>
+                        )}
+                      </Disclosure>
+                    ))}
+                    {singleFilter.map((section) => (
                       <Disclosure
                         as="div"
                         key={section.id}
@@ -446,6 +508,7 @@ export default function Products() {
                               >
                                 {section.options.map((option, optionIdx) => (
                                   <FormControlLabel
+                                  key={optionIdx}
                                     value={option.value}
                                     control={<Radio />}
                                     label={option.label}
@@ -468,12 +531,12 @@ export default function Products() {
                   <div className="flex flex-wrap justify-center bg-white border py-5 rounded-md ">
                     
                    
-                    {
+                    {/* {
                       console.log("products.products.content", products.products.content)
                      
-                    }
-                    {products.products.content?.map((item) => (
-                      <ProductCard product={item} />
+                    } */}
+                    {products.content?.map((item, index) => (
+                      <ProductCard key={index} product={item} />
                     ))}
                   </div>
                 </div>
@@ -486,7 +549,7 @@ export default function Products() {
         <section className="w-full px-[3.6rem]">
           <div className="mx-auto px-4 py-5 flex justify-center shadow-lg border rounded-md">
             <Pagination
-                count={products.products?.totalPages}
+                count={products?.totalPages}
               color="primary"
               className=""
                 onChange={handlePaginationChange}

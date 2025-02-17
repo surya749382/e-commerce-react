@@ -21,7 +21,7 @@ export const customerProductReducer = (state = initialState, action) => {
       return { ...state, loading: true, error: null };
 
       case FIND_PRODUCTS_SUCCESS:
-        console.log( "action.payload.content",action.payload.content)
+        // console.log( "action.payload.content",action.payload.content)
         return {...state, loading:false, error:null, products:action.payload}
       case FIND_PRODUCT_BY_ID_SUCCESS:
         return {...state, loading:false, error:null, product:action.payload}

@@ -132,7 +132,7 @@ export default function ProductDetails() {
             {product.product?.map((breadcrumb) => (
              
               <li key={breadcrumb.id}>
-                
+                {console.log("breadcrum",breadcrumb)}
                 <div className="flex items-center">
                   <a
                     href={"/"}
@@ -223,7 +223,7 @@ export default function ProductDetails() {
                   ₹{products.product?.discountedPrice}
                  
                 </p>
-                <p className="opacity-50 line-through">₹{products.product?.price}</p>
+                <p className="opacity-50 line-through">{products.product?.price}</p>
                 <p className="text-green-600 font-semibold">
                   {products.product?.discountPercent}% Off
                 </p>

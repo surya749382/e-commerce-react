@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import CartItem from "./CartItem";
 import {  Button } from "@mui/material";
-import { mens_kurta } from "../../../data/Mens_kurta/Mens_kurta";
-import { useNavigate } from "react-router-dom";
+import { mens_kurta } from "../../../data/Men/Mens_kurta";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart } from "../../../redux/cart/Action";
 
 
 const Cart = () => {
+  const location = useLocation();
 const navigate = useNavigate();
 const dispatch = useDispatch()
 const {cart} = useSelector(store =>store)
@@ -18,7 +19,7 @@ const handleCheckOut = ()=>{
 
 useEffect(()=>{
    dispatch(getCart())
-},[cart.updateCartItem,cart.deleteCartItem])
+},[cart.updateCartItem,cart.deleteCartItem,location.pathname])
 
 
 
@@ -28,9 +29,9 @@ useEffect(()=>{
       {true && <div className="lg:grid grid-cols-3 lg:px-16 relative">
         <div className="lg:col-span-2 lg:px-5 bg-white">
         <div className=" space-y-3">
-          {cart.cart?.cartItems.map((item) => (
+          {cart.cart?.cartItems.map((item,index) => (
             <>
-              <CartItem item={item} showButton={true} />
+              <CartItem item={item} key={index} showButton={true} />
               
               {/* <CartItem /> */}
             </>

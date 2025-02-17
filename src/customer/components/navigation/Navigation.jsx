@@ -21,15 +21,17 @@ function classNames(...classes) {
 }
 
 export default function Navigation() {
+  const { cart } = useSelector((store) => store);
+  // console.log("cart", cart);
   const [open, setOpen] = useState(false);
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
   const jwt = localStorage.getItem("jwt");
-  const navigate = useNavigate()
-  const {auth} = useSelector((store)=>store) // const auth = useSelector((store) => store.auth); both are same
-  const dispatch = useDispatch()
-  const location = useLocation()
+  const navigate = useNavigate();
+  const { auth } = useSelector((store) => store); // const auth = useSelector((store) => store.auth); both are same
+  const dispatch = useDispatch();
+  const location = useLocation();
 
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -43,7 +45,6 @@ export default function Navigation() {
   };
   const handleClose = () => {
     setOpenAuthModal(false);
-    
   };
 
   const handleCategoryClick = (category, section, item, close) => {
@@ -51,31 +52,30 @@ export default function Navigation() {
     close();
   };
 
- 
-   useEffect(()=>{
-      if(jwt){
-  
-  dispatch(getUser(jwt));
-
-}
-    },[jwt, auth.jwt])
-
-    useEffect(()=>{
-      if(auth.user){
-        handleClose()
-
-      }
-
-      // console.log("***************" , auth)
-      if(location.pathname ==="/login" || location.pathname === "/register"){
-        navigate(-1)
-      }
-    },[auth?.user])
-
-    const handleLogout = ()=>{
-      dispatch(logout())
-      handleCloseUserMenu()
+  useEffect(() => {
+    if (jwt) {
+      dispatch(getUser(jwt));
     }
+  }, [jwt, auth.jwt]);
+
+  useEffect(() => {
+    if (auth.user) {
+      handleClose();
+    }
+
+    // console.log("***************" , auth)
+    if (location.pathname === "/login" || location.pathname === "/register") {
+      navigate(-1);
+    }
+  }, [auth?.user]);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    handleCloseUserMenu();
+  };
+  const handleNavigateToCart = () => {
+    navigate("/cart");
+  };
 
   return (
     <div className="bg-white pb-10">
@@ -133,6 +133,7 @@ export default function Navigation() {
                           }
                         >
                           {category.name}
+                          {/* {console.log("category.name",category.name)} */}
                         </Tab>
                       ))}
                     </Tab.List>
@@ -174,9 +175,11 @@ export default function Navigation() {
                         </div>
                         {category.sections.map((section) => (
                           <div key={section.name}>
+                                                     
+
                             <p
                               id={`${category.id}-${section.id}-heading-mobile`}
-                              className="font-medium text-gray-900"
+                              className="font-semibold  text-green-900"
                             >
                               {section.name}
                             </p>
@@ -186,10 +189,10 @@ export default function Navigation() {
                               aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
                               className="mt-6 flex flex-col space-y-6"
                             >
-                              {section.items.map((item) => (
+                              {section.items.slice(0,2).map((item) => (
                                 <li key={item.name} className="flow-root">
                                   <p className="-m-2 block p-2 text-gray-500">
-                                    {"item.name"}
+                                    {item.name}
                                   </p>
                                 </li>
                               ))}
@@ -244,9 +247,17 @@ export default function Navigation() {
         </Dialog>
       </Transition.Root>
 
+
+
+{/* Desktop View  */}
+
+
+
+
+
       <header className="relative bg-white">
         <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
-          Get free delivery on orders over $100
+          Get free delivery on orders over ₹499 😍
         </p>
 
         <nav aria-label="Top" className="mx-auto">
@@ -266,7 +277,6 @@ export default function Navigation() {
                 {/* <Link to="/"> */}
                 <span className="sr-only">Your Company</span>
                 <img
-                
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHbg3eYf0324Ghoqplg9HIPPwoJUoCT-RwOA&s"
                   alt="logo"
                   className="h-12 w-12 mr-2"
@@ -317,14 +327,16 @@ export default function Navigation() {
                                 <div className="mx-auto max-w-7xl px-8">
                                   <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
                                     <div className="col-start-2 grid grid-cols-2 gap-x-8">
-                                      {category.featured.map((item) => (
+                                      {/* {category.featured.map((item) => (
                                         <div
                                           key={item.name}
                                           className="group relative text-base sm:text-sm"
                                         >
                                           <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                             <img
-                                              src={item.imageSrc}
+                                              // src={item.imageSrc}
+                                              src="https://rukminim1.flixcart.com/image/612/612/xif0q/sari/6/t/z/free-sequined-embroidered-saree-granthva-fab-unstitched-original-imaggsq6b4y2adwk.jpeg?q=70"
+
                                               alt={item.imageAlt}
                                               className="object-cover object-center"
                                             />
@@ -346,7 +358,7 @@ export default function Navigation() {
                                             Shop now
                                           </p>
                                         </div>
-                                      ))}
+                                      ))} */}
                                     </div>
                                     <div className="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
                                       {category.sections.map((section) => (
@@ -363,7 +375,7 @@ export default function Navigation() {
                                             aria-labelledby={`${section.name}-heading`}
                                             className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                           >
-                                            {section.items.map((item) => (
+                                            {section.items.slice(0,3).map((item) => (
                                               <li
                                                 key={item.name}
                                                 className="flex"
@@ -428,7 +440,7 @@ export default function Navigation() {
                       >
                         {auth.user?.firstName[0].toUpperCase()}
                         {/* {console.log(auth)} */}
-                        </Avatar>
+                      </Avatar>
                       {/* <Button
                         id="basic-button"
                         aria-controls={open ? "basic-menu" : undefined}
@@ -447,8 +459,10 @@ export default function Navigation() {
                           "aria-labelledby": "basic-button",
                         }}
                       >
-                          <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
-                        <MenuItem  onClick={()=>navigate('/account/order')}>
+                        <MenuItem onClick={handleCloseUserMenu}>
+                          Profile
+                        </MenuItem>
+                        <MenuItem onClick={() => navigate("/account/order")}>
                           My Order
                         </MenuItem>
                         <MenuItem onClick={handleLogout}>Logout</MenuItem>
@@ -478,14 +492,22 @@ export default function Navigation() {
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <Button className="group -m-2 flex items-center p-2">
-                    <ShoppingBagIcon
-                      className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                      aria-hidden="true"
-                    />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      {/* {cart.cart?.totalItem} */}2
-                    </span>
+                  <Button className="relative group -m-2 flex items-center p-2">
+                    {/* Cart Icon */}
+                    <div className="relative">
+                      <ShoppingBagIcon
+                        onClick={handleNavigateToCart}
+                        className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                        aria-hidden="true"
+                      />
+                      {/* Total Item Badge */}
+                      {cart.cart?.totalItem > 0 && (
+                        <span className="absolute -top-2 -right-2 bg-red-500 w-5 h-5 flex items-center justify-center rounded-full font-bold text-xs text-white">
+                          {cart.cart?.totalItem}
+                        </span>
+                      )}
+                    </div>
+
                     <span className="sr-only">items in cart, view bag</span>
                   </Button>
                 </div>
@@ -494,7 +516,7 @@ export default function Navigation() {
           </div>
         </nav>
       </header>
-      <AuthModal handleClose={handleClose} open={openAuthModal}/>
+      <AuthModal handleClose={handleClose} open={openAuthModal} />
     </div>
   );
 }

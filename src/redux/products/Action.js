@@ -21,7 +21,7 @@ import {
       pageNumber,
       pageSize,
     } = reqData;
-  console.log( "reqData", reqData)
+  // console.log( "reqData", reqData)
     try {
       dispatch({ type: FIND_PRODUCTS_REQUEST });
   
@@ -38,7 +38,7 @@ import {
   
   // ✅ Fetch a single product by ID
   export const findProductsById = (reqData) => async (dispatch) => {
-    console.log("findProductsById reqdata: ", reqData)
+    // console.log("findProductsById reqdata: ", reqData)
     dispatch({ type: FIND_PRODUCT_BY_ID_REQUEST });
   
     try {

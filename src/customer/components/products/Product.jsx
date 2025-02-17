@@ -14,7 +14,7 @@ import {
 } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
-import { mens_kurta } from '../../../data/Mens_kurta/Mens_kurta'
+import { mens_kurta } from '../../../data/Men/Mens_kurta'
 import ProductCard from './ProductCard'
 import { filters, singleFilter } from './FilterData'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
