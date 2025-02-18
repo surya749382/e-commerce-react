@@ -12,7 +12,7 @@ import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import TextField from "@mui/material/TextField";
 import { navigation } from "./navigationData";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthModal from "../../../auth/AuthModal";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, logout } from "../../../redux/Auth/Action";
@@ -274,14 +274,14 @@ export default function Navigation() {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                {/* <Link to="/"> */}
+                <Link to="/">
                 <span className="sr-only">Your Company</span>
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHbg3eYf0324Ghoqplg9HIPPwoJUoCT-RwOA&s"
                   alt="logo"
                   className="h-12 w-12 mr-2"
                 />
-                {/* </Link> */}
+                </Link>
               </div>
 
               {/* Flyout menus */}

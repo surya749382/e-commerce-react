@@ -1070,7 +1070,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "10% off",
+    "discountPercent": "10% off",
     "description": "Yellow Readymade Lehenga in Net fabric  The Lehenga is embellished with Mirrorwork embroidery Accompanied with an Readymade blouse and dupattaComes with the Koskii promise of premium quality",
     "topLevelCategory": "Women",
     "secondLevelCategory": "Clothing",
@@ -1097,7 +1097,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "46% off",
+    "discountPercent": "46% off",
     "description": "Yellow Readymade Lehenga in Net fabric  The Lehenga is embellished with Mirrorwork embroidery Accompanied with an Readymade blouse and dupattaComes with the Koskii promise of premium quality"
   },
   {
@@ -1121,7 +1121,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "30% off",
+    "discountPercent": "30% off",
     "description": "The Lehenga is embellished with Mirrorwork embroidery Accompanied with an Readymade blouse and dupatta Comes with the Koskii promise of premium quality"
   },
   {
@@ -1145,7 +1145,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "30"
+    "discountPercent": "30"
   },
   {
     "imageUrl": "https://rukminim1.flixcart.com/imageUrl/612/612/xif0q/lehenga-choli/y/d/8/l-3-4-sleeve-green-liva-original-imagmez3duzyzzxz.jpeg?q=70",
@@ -1168,7 +1168,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "44% off",
+    "discountPercent": "44% off",
     "description": "The Lehenga is embellished with Mirrorwork embroidery Accompanied with an Readymade blouse and dupatta Comes with the Koskii promise of premium quality"
   },
   {
@@ -1192,7 +1192,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "30% off"
+    "discountPercent": "30% off"
   },
   {
     "imageUrl": "https://rukminim1.flixcart.com/imageUrl/612/612/l16rde80/lehenga-choli/h/r/t/free-3-4-sleeve-r1-5-aminia-original-imagct7ghhpgrm48.jpeg?q=70",
@@ -1215,7 +1215,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "21% off",
+    "discountPercent": "21% off",
     "description": "The Lehenga is embellished with Mirrorwork embroidery Accompanied with an Readymade blouse and dupatta Comes with the Koskii promise of premium quality"
   },
   {
@@ -1239,7 +1239,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "16% off",
+    "discountPercent": "16% off",
     "description": "The Lehenga is embellished with Mirrorwork embroidery Accompanied with an Readymade blouse and dupatta Comes with the Koskii promise of premium quality"
   },
   {
@@ -1263,7 +1263,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "20% off",
+    "discountPercent": "20% off",
     "description": "The Lehenga is embellished with Mirrorwork embroidery Accompanied with an Readymade blouse and dupatta Comes with the Koskii promise of premium quality"
   },
   {
@@ -1287,7 +1287,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "49% off",
+    "discountPercent": "49% off",
     "description": "The Lehenga is embellished with Mirrorwork embroidery Accompanied with an Readymade blouse and dupatta Comes with the Koskii promise of premium quality"
   },
   {
@@ -1311,7 +1311,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "50% off",
+    "discountPercent": "50% off",
     "description": "The Lehenga is embellished with Mirrorwork embroidery Accompanied with an Readymade blouse and dupatta Comes with the Koskii promise of premium quality"
   },
   {
@@ -1335,7 +1335,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "80% off",
+    "discountPercent": "80% off",
     "description": "The Lehenga is embellished with Mirrorwork embroidery Accompanied with an Readymade blouse and dupatta Comes with the Koskii promise of premium quality"
   },
   {
@@ -1359,7 +1359,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "60% off",
+    "discountPercent": "60% off",
     "description": "The Lehenga is embellished with Mirrorwork embroidery Accompanied with an Readymade blouse and dupatta Comes with the Koskii promise of premium quality"
   },
   {
@@ -1383,7 +1383,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "32% off",
+    "discountPercent": "32% off",
     "description": "The Lehenga is embellished with Mirrorwork embroidery Accompanied with an Readymade blouse and dupatta Comes with the Koskii promise of premium quality"
   },
   {
@@ -1407,7 +1407,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "59% off",
+    "discountPercent": "59% off",
     "description": "The Lehenga is embellished with Mirrorwork embroidery Accompanied with an Readymade blouse and dupatta Comes with the Koskii promise of premium quality"
   },
   {
@@ -1431,7 +1431,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "61% off",
+    "discountPercent": "61% off",
     "description": "The Lehenga is embellished with Mirrorwork embroidery Accompanied with an Readymade blouse and dupatta Comes with the Koskii promise of premium quality"
   },
   {
@@ -1455,7 +1455,7 @@ export const lengha_page1 = [
         "quantity": 50
       }
     ],
-    "discountPersent": "66% off",
+    "discountPercent": "66% off",
     "description": "The Lehenga is embellished with Mirrorwork embroidery Accompanied with an Readymade blouse and dupatta Comes with the Koskii promise of premium quality"
   }
 ]

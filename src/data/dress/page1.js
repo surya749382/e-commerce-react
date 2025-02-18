@@ -7,7 +7,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 1299,
     "price": 2499,
-    "discountPersent": 50,
+    "discountPercent": 50,
     "size": [
       {
         "name": "S",
@@ -37,7 +37,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 341,
     "price": 1899,
-    "discountPersent": 82,
+    "discountPercent": 82,
     "size": [
       {
         "name": "S",
@@ -67,7 +67,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 499,
     "price": 1999,
-    "discountPersent": 75,
+    "discountPercent": 75,
     "size": [
       {
         "name": "S",
@@ -97,7 +97,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 359,
     "price": 2099,
-    "discountPersent": 82,
+    "discountPercent": 82,
     "size": [
       {
         "name": "S",
@@ -128,7 +128,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 359,
     "price": 2099,
-    "discountPersent": 82,
+    "discountPercent": 82,
     "size": [
       {
         "name": "S",
@@ -158,7 +158,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 827,
     "price": 1799,
-    "discountPersent": 54,
+    "discountPercent": 54,
     "size": [
       {
         "name": "S",
@@ -188,7 +188,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 351,
     "price": 1599,
-    "discountPersent": 78,
+    "discountPercent": 78,
     "size": [
       {
         "name": "S",
@@ -218,7 +218,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 499,
     "price": 2497,
-    "discountPersent": 80,
+    "discountPercent": 80,
     "size": [
       {
         "name": "S",
@@ -248,7 +248,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 449,
     "price": 1499,
-    "discountPersent": 70,
+    "discountPercent": 70,
     "size": [
       {
         "name": "S",
@@ -278,7 +278,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 719,
     "price": 1999,
-    "discountPersent": 64,
+    "discountPercent": 64,
     "size": [
       {
         "name": "S",
@@ -308,7 +308,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 349,
     "price": 1999,
-    "discountPersent": 65,
+    "discountPercent": 65,
     "size": [
       {
         "name": "S",
@@ -338,7 +338,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 299,
     "price": 1997,
-    "discountPersent": 85,
+    "discountPercent": 85,
     "size": [
       {
         "name": "S",
@@ -368,7 +368,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 499,
     "price": 2330,
-    "discountPersent": 78,
+    "discountPercent": 78,
     "size": [
       {
         "name": "S",
@@ -398,7 +398,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 359,
     "price": 1799,
-    "discountPersent": 80,
+    "discountPercent": 80,
     "size": [
       {
         "name": "S",
@@ -428,7 +428,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 474,
     "price": 1289,
-    "discountPersent": 47,
+    "discountPercent": 47,
     "size": [
       {
         "name": "S",
@@ -458,7 +458,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 827,
     "price": 2799,
-    "discountPersent": 70,
+    "discountPercent": 70,
     "size": [
       {
         "name": "S",
@@ -488,7 +488,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 351,
     "price": 2999,
-    "discountPersent": 64,
+    "discountPercent": 64,
     "size": [
       {
         "name": "S",
@@ -518,7 +518,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 359,
     "price": 1799,
-    "discountPersent": 80,
+    "discountPercent": 80,
     "size": [
       {
         "name": "S",
@@ -548,7 +548,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 449,
     "price": 1499,
-    "discountPersent": 70,
+    "discountPercent": 70,
     "size": [
       {
         "name": "S",
@@ -578,7 +578,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 959,
     "price": 1999,
-    "discountPersent": 52,
+    "discountPercent": 52,
     "size": [
       {
         "name": "S",
@@ -608,7 +608,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 499,
     "price": 1999,
-    "discountPersent": 75,
+    "discountPercent": 75,
     "size": [
       {
         "name": "S",
@@ -638,7 +638,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 371,
     "price": 2699,
-    "discountPersent": 86,
+    "discountPercent": 86,
     "size": [
       {
         "name": "S",
@@ -668,7 +668,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 348,
     "price": 1999,
-    "discountPersent": 82,
+    "discountPercent": 82,
     "size": [
       {
         "name": "S",
@@ -698,7 +698,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 495,
     "price": 1199,
-    "discountPersent": 58,
+    "discountPercent": 58,
     "size": [
       {
         "name": "S",
@@ -728,7 +728,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 2699,
     "price": 5999,
-    "discountPersent": 55,
+    "discountPercent": 55,
     "size": [
       {
         "name": "S",
@@ -759,7 +759,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 439,
     "price": 1499,
-    "discountPersent": 70,
+    "discountPercent": 70,
     "size": [
       {
         "name": "S",
@@ -789,7 +789,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 299,
     "price": 1999,
-    "discountPersent": 85,
+    "discountPercent": 85,
     "size": [
       {
         "name": "S",
@@ -819,7 +819,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 1599,
     "price": 3999,
-    "discountPersent": 60,
+    "discountPercent": 60,
     "size": [
       {
         "name": "S",
@@ -849,7 +849,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 1779,
     "price": 4999,
-    "discountPersent": 64,
+    "discountPercent": 64,
     "size": [
       {
         "name": "S",
@@ -879,7 +879,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 341,
     "price": 1899,
-    "discountPersent": 82,
+    "discountPercent": 82,
     "size": [
       {
         "name": "S",
@@ -909,7 +909,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 349,
     "price": 3999,
-    "discountPersent": 65,
+    "discountPercent": 65,
     "size": [
       {
         "name": "S",
@@ -939,7 +939,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 899,
     "price": 2899,
-    "discountPersent": 68,
+    "discountPercent": 68,
     "size": [
       {
         "name": "S",
@@ -969,7 +969,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 349,
     "price": 2063,
-    "discountPersent": 83,
+    "discountPercent": 83,
     "size": [
       {
         "name": "S",
@@ -999,7 +999,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 845,
     "price": 2798,
-    "discountPersent": 69,
+    "discountPercent": 69,
     "size": [
       {
         "name": "S",
@@ -1029,7 +1029,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 1558,
     "price": 4599,
-    "discountPersent": 65,
+    "discountPercent": 65,
     "size": [
       {
         "name": "S",
@@ -1059,7 +1059,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 351,
     "price": 4999,
-    "discountPersent": 64,
+    "discountPercent": 64,
     "size": [
       {
         "name": "S",
@@ -1089,7 +1089,7 @@ export const dressPage1 = [
     "color": "",
     "discountedPrice": 341,
     "price": 1899,
-    "discountPersent": 82,
+    "discountPercent": 82,
     "size": [
       {
         "name": "S",

@@ -87,7 +87,7 @@ export default function Products() {
         minDiscount: disccount || 0,
         sort: sortValue || "price_low",
         pageNumber: pageNumber - 1,
-        pageSize: 10,
+        pageSize: 12,
         stock: stock,
       };
       dispatch(findProducts(data));
@@ -336,7 +336,7 @@ export default function Products() {
 
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
-                <div>
+                {/* <div>
                   <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                     Sort
                     <ChevronDownIcon
@@ -344,7 +344,7 @@ export default function Products() {
                       aria-hidden="true"
                     />
                   </Menu.Button>
-                </div>
+                </div> */}
 
                 <Transition
                   as={Fragment}
@@ -370,7 +370,8 @@ export default function Products() {
                                 "block px-4 py-2 text-sm cursor-pointer"
                               )}
                             >
-                              {option.name}
+                              {/* {console.log("option",option)} */}
+                              {option?.name}
                             </p>
                           )}
                         </MenuItem>
@@ -385,7 +386,7 @@ export default function Products() {
                 className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
               >
                 <span className="sr-only">View grid</span>
-                <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
+                {/* <Squares2X2Icon className="h-5 w-5" aria-hidden="true" /> */}
               </button>
               <button
                 type="button"

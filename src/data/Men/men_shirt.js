@@ -6,7 +6,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 299,
         "price": 1299,
-        "discountPersent": 76,
+        "discountPercent": 76,
         "size": [
             {
               "name": "S",
@@ -34,7 +34,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 299,
         "price": 899,
-        "discountPersent": 66,
+        "discountPercent": 66,
         "size": [
             {
               "name": "S",
@@ -62,7 +62,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 299,
         "price": 1299,
-        "discountPersent": 76,
+        "discountPercent": 76,
         "size": [
             {
               "name": "S",
@@ -90,7 +90,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 879,
         "price": 1599,
-        "discountPersent": 45,
+        "discountPercent": 45,
         "size": [
             {
               "name": "S",
@@ -118,7 +118,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 419,
         "price": 1648,
-        "discountPersent": 74,
+        "discountPercent": 74,
         "size": [
             {
               "name": "S",
@@ -146,7 +146,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 399,
         "price": 1299,
-        "discountPersent": 69,
+        "discountPercent": 69,
         "size": [
             {
               "name": "S",
@@ -174,7 +174,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 379,
         "price": 1849,
-        "discountPersent": 79,
+        "discountPercent": 79,
         "size": [
             {
               "name": "S",
@@ -202,7 +202,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 498,
         "price": 999,
-        "discountPersent": 50,
+        "discountPercent": 50,
         "size": [
             {
               "name": "S",
@@ -230,7 +230,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 499,
         "price": 799,
-        "discountPersent": 50,
+        "discountPercent": 50,
         "size": [
             {
               "name": "S",
@@ -258,7 +258,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 499,
         "price": 1799,
-        "discountPersent": 72,
+        "discountPercent": 72,
         "size": [
             {
               "name": "S",
@@ -286,7 +286,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 409,
         "price": 1599,
-        "discountPersent": 74,
+        "discountPercent": 74,
         "size": [
             {
               "name": "S",
@@ -314,7 +314,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 449,
         "price": 999,
-        "discountPersent": 55,
+        "discountPercent": 55,
         "size": [
             {
               "name": "S",
@@ -342,7 +342,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 949,
         "price": 2499,
-        "discountPersent": 62,
+        "discountPercent": 62,
         "size": [
             {
               "name": "S",
@@ -370,7 +370,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 899,
         "price": 1799,
-        "discountPersent": 50,
+        "discountPercent": 50,
         "size": [
             {
               "name": "S",
@@ -398,7 +398,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 1099,
         "price": 2799,
-        "discountPersent": 62,
+        "discountPercent": 62,
         "size": [
             {
               "name": "S",
@@ -426,7 +426,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 911,
         "price": 2399,
-        "discountPersent": 62,
+        "discountPercent": 62,
         "size": [
             {
               "name": "S",
@@ -454,7 +454,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 499,
         "price": 1799,
-        "discountPersent": 72,
+        "discountPercent": 72,
         "size": [
             {
               "name": "S",
@@ -482,7 +482,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 499,
         "price": 960,
-        "discountPersent": 16,
+        "discountPercent": 16,
         "size": [
             {
               "name": "S",
@@ -510,7 +510,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 719,
         "price": 1199,
-        "discountPersent": 40,
+        "discountPercent": 40,
         "size": [
             {
               "name": "S",
@@ -538,7 +538,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 899,
         "price": 1799,
-        "discountPersent": 50,
+        "discountPercent": 50,
         "size": [
             {
               "name": "S",
@@ -566,7 +566,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 499,
         "price": 1499,
-        "discountPersent": 66,
+        "discountPercent": 66,
         "size": [
             {
               "name": "S",
@@ -594,7 +594,7 @@ export const mens_shirts = [
         "color": "whitePack of 2",
         "discountedPrice": 799,
         "price": 1499,
-        "discountPersent": 46,
+        "discountPercent": 46,
         "size": [
             {
               "name": "S",
@@ -622,7 +622,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 419,
         "price": 1648,
-        "discountPersent": 74,
+        "discountPercent": 74,
         "size": [
             {
               "name": "S",
@@ -650,7 +650,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 949,
         "price": 2499,
-        "discountPersent": 62,
+        "discountPercent": 62,
         "size": [
             {
               "name": "S",
@@ -678,7 +678,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 799,
         "price": 1599,
-        "discountPersent": 50,
+        "discountPercent": 50,
         "size": [
             {
               "name": "S",
@@ -706,7 +706,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 149,
         "price": 2599,
-        "discountPersent": 45,
+        "discountPercent": 45,
         "size": [
             {
               "name": "S",
@@ -734,7 +734,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 649,
         "price": 1499,
-        "discountPersent": 56,
+        "discountPercent": 56,
         "size": [
             {
               "name": "S",
@@ -762,7 +762,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 499,
         "price": 990,
-        "discountPersent": 50,
+        "discountPercent": 50,
         "size": [
             {
               "name": "S",
@@ -790,7 +790,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 959,
         "price": 1599,
-        "discountPersent": 40,
+        "discountPercent": 40,
         "size": [
             {
               "name": "S",
@@ -818,7 +818,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 399,
         "price": 1599,
-        "discountPersent": 75,
+        "discountPercent": 75,
         "size": [
             {
               "name": "S",
@@ -846,7 +846,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 599,
         "price": 899,
-        "discountPersent": 40,
+        "discountPercent": 40,
         "size": [
             {
               "name": "S",
@@ -874,7 +874,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 620,
         "price": 699,
-        "discountPersent": 37,
+        "discountPercent": 37,
         "size": [
             {
               "name": "S",
@@ -902,7 +902,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 751,
         "price": 1599,
-        "discountPersent": 53,
+        "discountPercent": 53,
         "size": [
             {
               "name": "S",
@@ -930,7 +930,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 919,
         "price": 2299,
-        "discountPersent": 60,
+        "discountPercent": 60,
         "size": [
             {
               "name": "S",
@@ -958,7 +958,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 719,
         "price": 1199,
-        "discountPersent": 40,
+        "discountPercent": 40,
         "size": [
             {
               "name": "S",
@@ -986,7 +986,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 4499,
         "price": 5999,
-        "discountPersent": 25,
+        "discountPercent": 25,
         "size": [
             {
               "name": "S",
@@ -1014,7 +1014,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 499,
         "price": 1499,
-        "discountPersent": 66,
+        "discountPercent": 66,
         "size": [
             {
               "name": "S",
@@ -1042,7 +1042,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 420,
         "price": 999,
-        "discountPersent": 57,
+        "discountPercent": 57,
         "size": [
             {
               "name": "S",
@@ -1070,7 +1070,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 1099,
         "price": 1999,
-        "discountPersent": 47,
+        "discountPercent": 47,
         "size": [
             {
               "name": "S",
@@ -1098,7 +1098,7 @@ export const mens_shirts = [
         "color": "white",
         "discountedPrice": 839,
         "price": 1399,
-        "discountPersent": 40,
+        "discountPercent": 40,
         "size": [
             {
               "name": "S",
